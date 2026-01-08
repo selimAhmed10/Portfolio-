@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width", initial-scale=1.0, maximum-scale=1.0">
 
-   <meta name="viewport" content="width=device-width", initial-scale=1.0, maximum-scale=1.0>
     <title>Contact</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -29,28 +29,57 @@
         <h1>Contact Me</h1>
         <div class="contact-container">
       
-            <div class="contact-form">
-                <form action="#" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    
-                    <label for="message">Message/Query:</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Enter your message or query" required></textarea>
-                    
-                    <button type="submit" class="submit-btn">Submit</button>
-                </form>
-            </div>
+     <div class="contact-form">
+    <form id="contactForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLScz85P6iVhP7tzAg_84PNz2wLr6Av1SZarhIQCqCpGU5ceFCQ/formResponse"
+          method="POST" target="hidden_iframe">
+
+        <label for="name">Name:</label>
+        <input type="text" name="entry.1298987322" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="entry.270938696" id="email" placeholder="Enter your email" required>
+
+        <label for="message">Message/Query:</label>
+        <textarea name="entry.210477101" id="message" rows="5" placeholder="Enter your message or query" required></textarea>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <p id="successMsg" style="color: #0ee40e; margin-top: 10px; display: none; opacity: 0; transition: opacity 0.5s;">
+        Thank you! Your message has been sent successfully.
+    </p>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
+
+<script>
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function() {
+        setTimeout(() => {
+            form.reset();
+
+            successMsg.style.display = "block";
+            setTimeout(() => successMsg.style.opacity = 1, 50);
+
+            setTimeout(() => successMsg.style.opacity = 0, 5000);
+
+            setTimeout(() => successMsg.style.display = "none", 5500);
+        }, 100); 
+    });
+</script>
+
+
 
         
             <div class="contact-info">
                 <h2>Get in Touch</h2>
                 <p>Feel free to reach out to me through any of the following platforms:</p>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> <a href="selim174662@gmail.com">selim174662@gmail.com</a></li>
-                    <li><i class="fab fa-whatsapp"></i> <a href="" target="_blank">WhatsApp-01612195390</a></li>
+                    <li><i class="fas fa-envelope"></i>  <a href="mailto:selim174662@gmail.com?subject=Contact from Portfolio&body=Hello Selim," class="icon email">selim174662@gmail.com</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/8801612195390?text=Hello%20Selim,%20I%20visited%20your%20portfolio" target="_blank" class="icon facebook">WhatsApp-01612195390</a></li>
                     <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/md-selim-ahmed-251421213/" target="_blank">LinkedIn</a></li>
                     <li><i class="fab fa-github"></i> <a href="https://github.com/selimAhmed10" target="_blank">Github</a></li>
                     <li><i class="fab fa-youtube"></i> <a href="https://youtu.be/DiJl0fUISh0" target="_blank">YouTube</a></li>
@@ -64,5 +93,3 @@
     </footer>
 </body>
 </html>
-
-
